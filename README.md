@@ -1,4 +1,8 @@
-rode no terminal rake db:seed (para popular com alguns dados o banco com a finalidade de testar e ajustar as funcionalidades desse sistema web)
+Primeiramente seleciona CODE para visualizar melhor essas instruções a seguir.
+
+Tente rodar no terminal a linha de comando: rake db:seed 
+
+(Isso servirá para popular com alguns dados o banco, com a finalidade de testar e ajustar as funcionalidades desse sistema web).
 
 Fullstack Ruby on Rails: Guia Completo para Desenvolvimento de uma Aplicação Airbnb
 
