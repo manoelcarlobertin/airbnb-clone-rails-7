@@ -1,41 +1,162 @@
-Primeiramente seleciona CODE para visualizar melhor essas instruções a seguir.
+# 🚀 Projeto Fullstack Ruby on Rails: Clone do Airbnb
 
-Tente rodar no terminal a linha de comando: rake db:seed 
+Este projeto é um guia completo para desenvolver uma aplicação Fullstack similar ao Airbnb, utilizando as mais recentes ferramentas e práticas do ecossistema Ruby on Rails. Acompanhe o desenvolvimento desde a configuração inicial até funcionalidades avançadas como autenticação, sistema de reservas e pagamentos.
 
-(Isso servirá para popular com alguns dados o banco, com a finalidade de testar e ajustar as funcionalidades desse sistema web).
+\<p align="center"\>
+\<img src="[https://via.placeholder.com/800x400?text=Screenshot+da+p%C3%A1gina+inicial+do+projeto](https://www.google.com/search?q=https://via.placeholder.com/800x400%3Ftext%3DScreenshot%2Bda%2Bp%25C3%25A1gina%2Binicial%2Bdo%2Bprojeto)" alt="Página inicial do projeto Rails"\>
+<br>
+\<em\>(Substitua esta imagem por uma captura de tela da página inicial do seu projeto)\</em\>
+\</p\>
 
-Fullstack Ruby on Rails: Guia Completo para Desenvolvimento de uma Aplicação Airbnb
+## ✨ Visão Geral do Projeto
 
-O vídeo "Learn Ruby on Rails in 2025 by Building Airbnb Full Tutorial" (Aprenda Ruby on Rails em 2025 construindo um tutorial completo do Airbnb)
+O objetivo é replicar as funcionalidades essenciais de uma plataforma de aluguel de imóveis, como:
 
-https://www.youtube.com/watch?v=dshxbdKzMwU
+  * **Listagem de Imóveis:** Criar, visualizar e gerenciar anúncios de propriedades.
+  * **Autenticação de Usuários:** Cadastro, login e gerenciamento de perfis.
+  * **Sistema de Reservas:** Permite que usuários reservem imóveis.
+  * **Processamento de Pagamentos:** Integração com Stripe para transações seguras.
 
-1 Configuração Inicial e Geração do Projeto
-2 Geração do Modelo de Listagem (Scaffold) - Anúnios de aluguel de imóvel
-3 Configurações Básicas e UI/UX 
-4 URLs Amigáveis (Friendly ID)
-5 Página de Detalhes da Listagem
-6 Adição de Campos Detalhados para Listagem
-7 Upload de Imagens Melhorado com Active Storage e Stimulus
-8 Autenticação de Usuários com Devise
-9 Barra de Navegação (Navbar) e Dropdown de Usuário
-10 Gerenciamento de Perfil do Usuário
-11 Integração com Stripe Connect (para Proprietários)
-12 Associação de Usuário a Listagens e Autorização
-13 Adição de Preços às Listagens
-14 Sistema de Reservas (Bookings)
-15 Pagamento de Reservas com Stripe Checkout Embedded
-16 Gerenciamento de Status de Reserva e Validações
-17 Melhorias na Modularidade e Manutenibilidade:
+Este projeto é baseado e se inspira no tutorial em vídeo:
+**"Learn Ruby on Rails in 2025 by Building Airbnb Full Tutorial"**
+[Assista ao tutorial no YouTube](https://www.youtube.com/watch?v=dshxbdKzMwU)
 
-Service Objects: Para lógicas de negócio complexas, como a criação de uma reserva (que envolve validações, criação de booking, interação com Stripe), utilize Service Objects. Isso centraliza a lógica e mantém os controllers mais enxutos. Ex: BookingCreatorService.
+-----
 
-Form Objects: Para formulários com muitos campos ou que interagem com múltiplos modelos (ex: cadastro de usuário com informações de perfil), crie Form Objects. Eles encapsulam a lógica de validação e salvamento, tornando o controller mais limpo.
+## 🛠️ Tecnologias Utilizadas
 
-View Components: Em vez de partials complexos, considere a utilização de View Components (como o ViewComponent da GitHub). Eles oferecem uma forma mais robusta e testável de encapsular UI com sua própria lógica e testes.
+  * **Ruby on Rails 7+**
+  * **RSpec:** Para testes de unidade, integração e sistema.
+  * **FactoryBot:** Para a criação de objetos de teste.
+  * **Faker:** Para a geração de dados de teste realistas.
+  * **Friendly ID:** Para URLs amigáveis.
+  * **Active Storage:** Para upload e gerenciamento de imagens.
+  * **Devise:** Para autenticação de usuários.
+  * **Stripe Connect & Checkout:** Para processamento de pagamentos.
+  * **Stimulus:** Para interatividade no frontend.
 
-Modelo do arquivo que irá popular todo o sistema, segue um exemplo abaixo:
+-----
 
+## 🚦 Como Rodar o Projeto Localmente
+
+Siga estas etapas para configurar e executar o projeto em sua máquina:
+
+1.  **Clone o repositório:**
+
+    ```bash
+    git clone [URL_DO_SEU_REPOSITORIO]
+    cd [nome-do-seu-repositorio]
+    ```
+
+2.  **Instale as dependências:**
+
+    ```bash
+    bundle install
+    ```
+
+3.  **Configure o banco de dados:**
+
+    ```bash
+    rails db:create
+    rails db:migrate
+    ```
+
+4.  **Popule o banco de dados com dados de exemplo (Seed):**
+
+    ```bash
+    rake db:seed
+    ```
+
+    Isso preencherá seu banco de dados com usuários, anúncios e imagens (se houver imagens em `app/assets/images`), permitindo que você teste as funcionalidades imediatamente.
+
+5.  **Inicie o servidor Rails:**
+
+    ```bash
+    rails s
+    ```
+
+    O aplicativo estará disponível em `http://localhost:3000`.
+
+-----
+
+## 🗺️ Mapa de Desenvolvimento (Etapas do Tutorial)
+
+O projeto foi estruturado seguindo as seguintes etapas principais:
+
+1.  **Configuração Inicial e Geração do Projeto**
+2.  **Geração do Modelo de Listagem (Scaffold):** Criação dos Anúncios de aluguel de imóvel.
+3.  **Configurações Básicas e Melhorias de UI/UX**
+4.  **URLs Amigáveis (Friendly ID):** Implementação de URLs legíveis baseadas no título.
+5.  **Página de Detalhes da Listagem:** Visualização completa de um anúncio.
+6.  **Adição de Campos Detalhados:** Enriquecimento das informações de cada listagem.
+7.  **Upload de Imagens Melhorado:** Utilizando Active Storage e Stimulus para upload de fotos.
+    \<p align="center"\>
+    \<img src="[https://via.placeholder.com/600x300?text=Exemplo+de+upload+de+imagens](https://www.google.com/search?q=https://via.placeholder.com/600x300%3Ftext%3DExemplo%2Bde%2Bupload%2Bde%2Bimagens)" alt="Upload de imagens com Active Storage"\>
+    <br>
+    \<em\>(Substitua por uma imagem do formulário de upload de imagens)\</em\>
+    \</p\>
+8.  **Autenticação de Usuários com Devise**
+9.  **Barra de Navegação (Navbar) e Dropdown de Usuário:** Elementos essenciais de navegação.
+10. **Gerenciamento de Perfil do Usuário**
+11. **Integração com Stripe Connect (para Proprietários):** Configuração para pagamentos a proprietários.
+12. **Associação de Usuário a Listagens e Autorização:** Definindo quem pode criar/editar anúncios.
+13. **Adição de Preços às Listagens**
+14. **Sistema de Reservas (Bookings):** Lógica para criar e gerenciar reservas.
+15. **Pagamento de Reservas com Stripe Checkout Embedded**
+16. **Gerenciamento de Status de Reserva e Validações**
+
+-----
+
+## 🧩 Melhorias na Modularidade e Manutenibilidade
+
+Para garantir um código limpo, testável e fácil de manter, foram aplicadas as seguintes estratégias de modularização:
+
+  * **Service Objects:**
+    Para lógicas de negócio complexas, como a criação de uma reserva (que envolve validações, criação de booking, interação com Stripe), Service Objects centralizam a lógica e mantêm os controllers mais enxutos.
+
+      * **Exemplo:** `BookingCreatorService`.
+
+  * **Form Objects:**
+    Para formulários com muitos campos ou que interagem com múltiplos modelos (ex: cadastro de usuário com informações de perfil), Form Objects encapsulam a lógica de validação e salvamento, tornando o controller mais limpo.
+
+  * **View Components:**
+    Em vez de `partials` complexos, foram utilizados View Components (inspirados no ViewComponent do GitHub). Eles oferecem uma forma mais robusta e testável de encapsular a interface do usuário com sua própria lógica.
+
+    \<p align="center"\>
+    \<img src="[https://via.placeholder.com/600x300?text=Exemplo+de+View+Component](https://www.google.com/search?q=https://via.placeholder.com/600x300%3Ftext%3DExemplo%2Bde%2BView%2BComponent)" alt="Estrutura de View Component"\>
+    <br>
+    \<em\>(Substitua por um diagrama ou exemplo de View Component)\</em\>
+    \</p\>
+
+-----
+
+## 🧪 Testes
+
+O projeto utiliza **RSpec**, **FactoryBot** e **Faker** para garantir a qualidade do código através de uma suíte de testes robusta:
+
+  * **Testes de Unidade:** Para validações e associações de modelos.
+  * **Testes de Requisição/Controlador:** Para verificar o comportamento das requisições HTTP, redirecionamentos e respostas.
+  * **Testes de Sistema/Feature:** Simulando a interação completa do usuário na interface para validar fluxos completos.
+
+Para executar a suíte de testes:
+
+```bash
+bundle exec rspec
+```
+
+\<p align="center"\>
+\<img src="[https://via.placeholder.com/600x300?text=Resultados+dos+testes+RSpec](https://www.google.com/search?q=https://via.placeholder.com/600x300%3Ftext%3DResultados%2Bdos%2Btestes%2BRSpec)" alt="Resultados dos testes RSpec no terminal"\>
+<br>
+\<em\>(Substitua por uma imagem do output dos testes RSpec no terminal)\</em\>
+\</p\>
+
+-----
+
+## 🌱 `db/seeds.rb` - Exemplo de População de Dados
+
+Este é o script `db/seeds.rb` que é executado com `rake db:seed` para popular o banco de dados com dados de teste, incluindo usuários, anúncios e anexos de imagem.
+
+```ruby
 # db/seeds.rb (Versão Final Corrigida)
 
 # --- CONFIGURAÇÃO INICIAL ---
@@ -49,7 +170,7 @@ local_image_paths = Dir.glob(Rails.root.join('app', 'assets', 'images', '*.{jpg,
 
 if local_image_paths.empty?
   puts "⚠️  Nenhuma imagem local encontrada! Os anúncios serão criados sem fotos."
-  puts "   -> Certifique-se de colocar arquivos .jpg ou .png em app/assets/images."
+  puts "    -> Certifique-se de colocar arquivos .jpg ou .png em app/assets/images."
 else
   puts "✅  #{local_image_paths.count} imagens encontradas."
 end
@@ -59,7 +180,7 @@ def attach_local_images(anuncio, image_paths)
   return if image_paths.empty?
   quantity = [ rand(2..5), image_paths.count ].min
   images_to_attach = image_paths.sample(quantity)
-  puts "    -> Anexando #{quantity} imagens locais para '#{anuncio.title}'..."
+  puts "     -> Anexando #{quantity} imagens locais para '#{anuncio.title}'..."
   images_to_attach.each do |image_path|
     anuncio.images.attach(
       io: File.open(image_path),
@@ -143,3 +264,4 @@ puts "\n============================================="
 puts "🎉 Processo de seed finalizado com sucesso!"
 puts "============================================="
 # ... (resumo final)
+```
